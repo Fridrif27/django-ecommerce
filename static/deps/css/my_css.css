@@ -36,3 +36,6 @@ body {
   border-radius: 15px;
   font-size: 0.7rem;
 }
+.btn-outline-success:hover {
+        background-color: blue !important;
+    }

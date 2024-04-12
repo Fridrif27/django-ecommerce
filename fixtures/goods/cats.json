@@ -1,0 +1,1 @@
+[{"model": "goods.categories", "pk": 1, "fields": {"name": "PC", "slug": "pc"}}, {"model": "goods.categories", "pk": 2, "fields": {"name": "Playstation", "slug": "playstation"}}, {"model": "goods.categories", "pk": 3, "fields": {"name": "Xbox", "slug": "xbox"}}, {"model": "goods.categories", "pk": 4, "fields": {"name": "Nintendo", "slug": "nintendo"}}]

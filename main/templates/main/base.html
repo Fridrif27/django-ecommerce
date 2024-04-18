@@ -91,7 +91,11 @@
                     </button>
                     <ul class="dropdown-menu bg-dark" data-bs-theme="dark">
                         {% for category in categories %}
-                            <li><a class="dropdown-item text-white" href="{% url "catalog:index" %}">{{category.name}}</a></li>
+                            <li><a class="dropdown-item text-white" href="{% url "catalog:index" %}">
+                                <img class="mx-1" src="static/deps/icons/{{ category.icon }}.svg" width="16"
+                                height="16" style="margin-bottom: 4px">
+                                {{category.name}}
+                            </a></li>
                         {% endfor %}
 
                     </ul>

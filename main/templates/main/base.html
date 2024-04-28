@@ -69,8 +69,8 @@
                             </ul>
                         </li>
                     </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="border-color: white;">
+                    <form class="d-flex" role="search" action="{% url "catalog:search" %}" method="get">
+                        <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success text-white" type="submit" style="background-color: transparent; border-color: white;"> <!-- This line was modified -->
                             <img class="mx-1" src="static/deps/icons/search-heart.svg" alt="Catalog Icon" width="16" height="16" fill="white">
                     </form>

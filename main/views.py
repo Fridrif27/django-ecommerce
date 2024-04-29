@@ -20,7 +20,7 @@ def about(request):
     context = {
         'title': '',
         'content': "",
-        'text_on_page': "Welcome to Games Hub – your ultimate destination for all things gaming!"
+        'text_on_page': "Welcome to Games Core – your ultimate destination for all things gaming!"
     }
 
     return render(request, 'main/about.html', context)

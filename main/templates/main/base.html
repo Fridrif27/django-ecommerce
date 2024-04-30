@@ -1,4 +1,5 @@
 {% load static %}
+{% load goods_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,9 +41,7 @@
                                 Information
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item  text-white" href="#">Payment</a></li>
-                                <li><a class="dropdown-item  text-white" href="#">Support</a></li>
-                                <li><a class="dropdown-item  text-white" href="{% url "main:about" %}">About</a></li>
+                                <li><a class="dropdown-item  text-white" href="{% url "main:about" %}">Support</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -68,10 +67,8 @@
                             </ul>
                         </li>
                     </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="border-color: white;">
-                        <button class="btn btn-outline-success text-white" type="submit" style="background-color: transparent; border-color: white;"> <!-- This line was modified -->
-                            <img class="mx-1" src="static/deps/icons/search-heart.svg" alt="Catalog Icon" width="16" height="16" fill="white">
+                    <form class="d-flex" role="search" action="{% url "catalog:search" %}" method="get">
+                        <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
                     </form>
                 </div>
             </div>
@@ -90,8 +87,10 @@
                             height="16">
                     </button>
                     <ul class="dropdown-menu bg-dark" data-bs-theme="dark">
+                        {% tag_categories as categories %}
                         {% for category in categories %}
-                            <li><a class="dropdown-item text-white" href="{% url "catalog:index" %}">{{category.name}}</a></li>
+                           <li><a class="dropdown-item text-white" href="{% url "catalog:index" category.slug %}"><img class="mx-1" src="static/deps/icons/{{ category.icon }}.svg" width="16"
+                                height="16" style="margin-bottom: 4px">{{category.name}}</a></li>
                         {% endfor %}
 
                     </ul>

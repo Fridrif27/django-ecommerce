@@ -288,6 +288,8 @@ poetry.toml
 pyrightconfig.json
 
 .venv/
+myenv/
 node_modules/
-
+app/
+node_modules
 # End of https://www.toptal.com/developers/gitignore/api/pycharm,python

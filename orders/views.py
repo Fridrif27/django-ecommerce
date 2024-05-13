@@ -35,8 +35,8 @@ def create_order(request):
 
 
                             if product.quantity < quantity:
-                                raise ValidationError(f'Недостаточное количество товара {name} на складе\
-                                                       В наличии - {product.quantity}')
+                                raise ValidationError(f'Insufficient amount of goods {name} in stock\
+                                                       In stock - {product.quantity}')
 
                             OrderItem.objects.create(
                                 order=order,
@@ -51,7 +51,7 @@ def create_order(request):
                         # Очистить корзину пользователя после создания заказа
                         cart_items.delete()
 
-                        messages.success(request, 'Заказ оформлен!')
+                        messages.success(request, 'The order has been placed!')
                         return redirect('user:profile')
             except ValidationError as e:
                 messages.success(request, str(e))
@@ -65,7 +65,7 @@ def create_order(request):
         form = CreateOrderForm(initial=initial)
 
     context = {
-        'title': 'Home - Оформление заказа',
+        'title': 'Home - Order processing',
         'form': form,
     }
     return render(request, 'orders/create_order.html', context=context)

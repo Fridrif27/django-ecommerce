@@ -16,7 +16,11 @@ def login(request):
             user = auth.authenticate(username=username, password=password)
             if user:
                 auth.login(request, user)
-                messages.success(request, f"{username}, you login in account")
+                messages.success(request, f"{username}, Вы вошли в аккаунт")
+
+                if request.POST.get('next', None):
+                    return HttpResponseRedirect(request.POST.get('next'))
+                    
                 return HttpResponseRedirect(reverse('main:index'))
     else:
         form = UserLoginForm()
@@ -58,7 +62,7 @@ def profile(request):
         form = ProfileForm(instance=request.user)
 
     context = {
-        'title': 'Home - Кабинет',
+        'title': 'Home - profile',
         'form': form
     }
     return render(request, 'users/profile.html', context)

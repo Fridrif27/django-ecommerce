@@ -22,7 +22,7 @@ def login(request):
 
             if user:
                 auth.login(request, user)
-                messages.success(request, f"{username}, Вы вошли в аккаунт")
+                messages.success(request, f"{username}, You are registered in your account")
                 if session_key:
                     Cart.objects.filter(session_key=session_key).update(user=user)
 

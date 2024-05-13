@@ -67,3 +67,4 @@ class OrderAdmin(admin.ModelAdmin):
         "payment_on_get",
         "is_paid",
     )
+    inlines = (OrderItemTabulareAdmin,)

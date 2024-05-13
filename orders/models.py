@@ -26,8 +26,8 @@ class Order(models.Model):
 
     class Meta:
         db_table = "order"
-        verbose_name = "order"
-        verbose_name_plural = "orders"
+        verbose_name = "Order"
+        verbose_name_plural = "Orders"
 
     def __str__(self):
         return f"Order № {self.pk} | Customer {self.user.first_name} {self.user.last_name}"
@@ -36,7 +36,7 @@ class Order(models.Model):
 class OrderItem(models.Model):
     order = models.ForeignKey(to=Order, on_delete=models.CASCADE, verbose_name="Order")
     product = models.ForeignKey(to=Products, on_delete=models.SET_DEFAULT, null=True, verbose_name="Product", default=None)
-    name = models.CharField(max_length=150, verbose_name="Название")
+    name = models.CharField(max_length=150, verbose_name="Name")
     price = models.DecimalField(max_digits=7, decimal_places=2, verbose_name="Price")
     quantity = models.PositiveIntegerField(default=0, verbose_name="Quantity")
     created_timestamp = models.DateTimeField(auto_now_add=True, verbose_name="Date of sale")

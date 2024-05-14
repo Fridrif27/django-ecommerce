@@ -13,6 +13,7 @@ class UserLoginForm(AuthenticationForm):
     username = forms.CharField()
     password = forms.CharField()
 
+
 class UserRegistrationForm(UserCreationForm):
 
     class Meta:
@@ -32,6 +33,7 @@ class UserRegistrationForm(UserCreationForm):
     email = forms.CharField()
     password1 = forms.CharField()
     password2 = forms.CharField()
+
 
 class ProfileForm(UserChangeForm):
     class Meta:

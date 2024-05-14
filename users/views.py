@@ -24,7 +24,7 @@ def login(request):
                 auth.login(request, user)
                 messages.success(request, f"{username}, You are registered in your account")
                 if session_key:
-                    Cart.objects.filter(session_key=session_key).update(user=user)
+                    (Cart.objects.filter(session_key=session_key).update(user=user))
 
                 redirect_page = request.POST.get('next', None)
                 if redirect_page and redirect_page != reverse('user:logout'):
@@ -82,7 +82,6 @@ def profile(request):
                     queryset=OrderItem.objects.select_related("product"),
                 )
             ).order_by("-id")
-        
 
     context = {
         'title': 'Home - profile',
@@ -90,6 +89,7 @@ def profile(request):
         'orders': orders,
     }
     return render(request, 'users/profile.html', context)
+
 
 def users_cart(request):
     return render(request, 'users/users_cart.html')

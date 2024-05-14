@@ -26,7 +26,6 @@ class Products(models.Model):
     quantity = models.PositiveIntegerField(default=0, verbose_name='Quantity')
     category = models.ForeignKey(to=Categories, on_delete=models.CASCADE, verbose_name='Category')
 
-
     class Meta:
         db_table = 'product'
         verbose_name = 'Product'
@@ -38,11 +37,9 @@ class Products(models.Model):
 
     def get_absolute_url(self):
         return reverse("catalog:product", kwargs={"product_slug": self.slug})
-    
 
     def display_id(self):
         return f"{self.id:05}"
-
 
     def sell_price(self):
         if self.discount:

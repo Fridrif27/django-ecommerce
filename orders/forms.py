@@ -25,4 +25,3 @@ class CreateOrderForm(forms.Form):
             raise forms.ValidationError("Invalid number format")
 
         return data
-

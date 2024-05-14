@@ -4,6 +4,7 @@ from users.forms import UserLoginForm
 
 User = get_user_model()
 
+
 class UserLoginFormTest(TestCase):
 
     @classmethod

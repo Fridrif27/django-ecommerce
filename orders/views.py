@@ -33,7 +33,6 @@ def create_order(request):
                             price=cart_item.product.sell_price()
                             quantity=cart_item.quantity
 
-
                             if product.quantity < quantity:
                                 raise ValidationError(f'Insufficient amount of goods {name} in stock\
                                                        In stock - {product.quantity}')

@@ -14,6 +14,7 @@ class CartQueryset(models.QuerySet):
             return sum(cart.quantity for cart in self)
         return 0
 
+
 class Cart(models.Model):
 
     user = models.ForeignKey(to=User, on_delete=models.CASCADE, blank=True, null=True, verbose_name='user')
@@ -31,7 +32,6 @@ class Cart(models.Model):
 
     def products_price(self):
         return round(self.product.sell_price() * self.quantity, 2)
-
 
     def __str__(self):
         if self.user:

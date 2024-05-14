@@ -14,6 +14,7 @@ class OrderitemQueryset(models.QuerySet):
             return sum(cart.quantity for cart in self)
         return 0
 
+
 class Order(models.Model):
     user = models.ForeignKey(to=User, on_delete=models.SET_DEFAULT, blank=True, null=True, verbose_name="User", default=None)
     created_timestamp = models.DateTimeField(auto_now_add=True, verbose_name="Order creation date")
@@ -38,7 +39,6 @@ class OrderItem(models.Model):
     price = models.DecimalField(max_digits=7, decimal_places=2, verbose_name="Price")
     quantity = models.PositiveIntegerField(default=0, verbose_name="Quantity")
     created_timestamp = models.DateTimeField(auto_now_add=True, verbose_name="Date of sale")
-
 
     class Meta:
         db_table = "order_item"

@@ -4,6 +4,7 @@ from .models import Order, OrderItem
 from users.models import User
 from goods.models import Products, Categories
 
+
 class OrderModelTest(TestCase):
     @classmethod
     def setUpTestData(cls):

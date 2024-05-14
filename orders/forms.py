@@ -6,14 +6,7 @@ class CreateOrderForm(forms.Form):
 
     first_name = forms.CharField()
     last_name = forms.CharField()
-    phone_number = forms.CharField()
-    requires_delivery = forms.ChoiceField(
-        choices=[
-            ("0", False),
-            ("1", True),
-            ],
-        )
-    delivery_address = forms.CharField(required=False)
+    card_number = forms.CharField()
     payment_on_get = forms.ChoiceField(
         choices=[
             ("0", 'False'),
@@ -21,13 +14,13 @@ class CreateOrderForm(forms.Form):
             ],
         )
 
-    def clean_phone_number(self):
-        data = self.cleaned_data['phone_number']
+    def clean_card_number(self):
+        data = self.cleaned_data['card_number']
 
         if not data.isdigit():
-            raise forms.ValidationError("The phone number must contain only numbers")
+            raise forms.ValidationError("The card number must contain only numbers")
         
-        pattern = re.compile(r'^\d{10}$')
+        pattern = re.compile(r'^\d{16}$')
         if not pattern.match(data):
             raise forms.ValidationError("Invalid number format")
 

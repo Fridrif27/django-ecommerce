@@ -71,4 +71,4 @@ def create_order(request):
         'form': form,
          'orders': True,
     }
-    return render(request, 'orders/create_order.html', context=context)
+    return render(request, 'create_order.html', context=context)

@@ -39,3 +39,9 @@ body {
 .btn-outline-success:hover {
         background-color: blue !important;
     }
+
+.fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

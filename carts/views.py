@@ -48,7 +48,6 @@ def cart_add(request):
 
     return JsonResponse(response_data)
 
-            
 
 def cart_change(request):
     cart_id = request.POST.get("cart_id")
@@ -71,6 +70,7 @@ def cart_change(request):
     }
 
     return JsonResponse(response_data)
+
 
 def cart_remove(request):
     

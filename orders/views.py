@@ -23,9 +23,7 @@ def create_order(request):
                         # Создать заказ
                         order = Order.objects.create(
                             user=user,
-                            phone_number=form.cleaned_data['phone_number'],
-                            requires_delivery=form.cleaned_data['requires_delivery'],
-                            delivery_address=form.cleaned_data['delivery_address'],
+                            card_number=form.cleaned_data['card_number'],
                             payment_on_get=form.cleaned_data['payment_on_get'],
                         )
                         # Создать заказанные товары
@@ -34,7 +32,6 @@ def create_order(request):
                             name=cart_item.product.name
                             price=cart_item.product.sell_price()
                             quantity=cart_item.quantity
-
 
                             if product.quantity < quantity:
                                 raise ValidationError(f'Insufficient amount of goods {name} in stock\
@@ -69,6 +66,6 @@ def create_order(request):
     context = {
         'title': 'Home - Order processing',
         'form': form,
-         'orders': True,
+        'orders': True,
     }
     return render(request, 'create_order.html', context=context)

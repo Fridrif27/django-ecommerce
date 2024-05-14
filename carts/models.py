@@ -13,7 +13,7 @@ class CartQueryset(models.QuerySet):
         if self:
             return sum(cart.quantity for cart in self)
         return 0
-    
+
 
 class Cart(models.Model):
 
@@ -32,7 +32,6 @@ class Cart(models.Model):
 
     def products_price(self):
         return round(self.product.sell_price() * self.quantity, 2)
-
 
     def __str__(self):
         if self.user:

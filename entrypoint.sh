@@ -14,5 +14,4 @@ fi
 python manage.py flush --no-input
 python manage.py migrate
 
-PORT="${PORT:-8000}"
-python manage.py runserver 0.0.0.0:$PORT
+python manage.py runserver 0.0.0.0:${PORT:-8000}
